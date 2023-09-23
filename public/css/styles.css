@@ -4,3 +4,290 @@
 *:after {
   box-sizing: border-box;
 }
+
+/************ Body Styles ***************/
+
+body {
+  max-width: 1600px;
+  font-family: 'Roboto', sans-serif;
+  font-size: 16px;
+  line-height: 1.5;
+  margin: 0;
+  padding: 0;
+}
+
+/* Apply background image to the entire page */
+.background-image {
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+}
+
+/* Style the content container with a white background */
+.content-container {
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  position: relative;
+  top: 0;
+  left: 0;
+  width: 90%;
+  height: 90%;
+  z-index: -1;
+  background-color: white;
+  padding: 20px;
+  margin: 20px auto;
+  max-width: 1200px;
+  border: rgb(43, 126, 153) 5px solid;
+  border-radius: 10px;
+}
+
+/************ Header Styles ***************/
+
+#top-header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  text-decoration: none;
+  padding-bottom: 20px;
+  padding-left: 0;
+}
+.siteName a{
+  color: black;
+  font-size: 2rem;
+  margin: 0;
+  padding-left: 0;
+  justify-content: center;
+  text-decoration: none;
+}
+
+#tools a{
+  color: black;
+  display: flex;
+  justify-content: center;
+  padding-right: 20px;
+  text-decoration: none;
+}
+
+/************ Navigation Styles ***************/
+
+nav {
+  background-color: black;
+  color: white;
+}
+
+nav ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  justify-content: space-around;
+}
+
+nav li {
+  padding: 10px;
+  text-decoration: none;
+}
+
+/************ Main Styles ***************/
+
+.pic-text-container {
+  position: relative;
+  margin-bottom: 80px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.image-wrapper {
+  flex-shrink: 0;
+  position: relative;
+}
+
+#car {
+  max-width: 100%;
+}
+
+#text-container {
+  color: rgb(43, 126, 153);
+  background-color: rgba(255, 255, 255, 0.896);
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 50%;
+  padding: 20px;
+  z-index: 1;
+  width: 30%;
+  margin: 0 auto;
+  text-align: left;
+}
+
+#text-container button {
+  background-color: rgb(43, 126, 153);
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  font-size: 1.2rem;
+  cursor: pointer;
+  box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.5);
+}
+
+#text-container button:hover {
+  cursor: pointer;
+}
+
+.bottom-half-container {
+  display: flex;
+  flex-direction: row;
+  margin-bottom: 80px;
+  align-self: flex-start;
+  justify-content: space-evenly;
+  align-items: flex-start;
+  gap: 10px;
+}
+
+#table-container {
+  text-align: left;
+  justify-content: flex-start;
+  align-self: flex-start;
+  order: 1;
+}
+
+#table-container h2 {
+  margin-top: 0;
+  text-align: left;
+  margin-left: 10px;
+}
+
+.image-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 5px;
+}
+
+.upgrade-item {
+  padding: 10px;
+  text-align: center;
+  text-decoration: underline;
+  color: rgb(43, 126, 153);
+}
+
+.upgrade-item img {
+  background-color: rgb(109, 165, 184);
+  padding: 25%;
+  border: rgb(43, 126, 153) 2px solid;
+  width: 100%;
+  height: 100%;
+  max-width: 200px;
+  max-height: 160px;
+}
+
+#reviews-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-self: flex-start;
+  padding-left: 0;
+  text-align: left;
+  margin-top: -20px;
+  order: 2;
+}
+
+#reviews-container h2 {
+  padding-left: 0;
+  text-align: left;
+}
+
+#reviews-container ul {
+  list-style-position: inside;
+  line-height: 4;
+  padding: 0;
+}
+
+/************ Footer Styles ***************/
+
+
+
+/************ Media Queries ***************/
+
+@media (max-width: 768px) {
+
+  .background-image {
+    display: none;
+  }
+
+  .content-container {
+    width: 100%;
+    height: 100%;
+    padding: 10px;
+    border: none;
+  }  
+
+  #top-header {
+    text-align: left;
+  }
+
+  .siteName a{
+    font-size: 1.75rem;
+    text-align: left;
+  }  
+
+  main h1 {
+    font-size: 1.5rem;
+  }
+
+  .pic-text-container {
+    flex-direction: column;
+    margin-bottom: 40px;
+  }
+
+  #text-container {
+    width: 50%;
+    right: 0;
+    left: 0;
+    margin: 0;
+    padding: 10px;
+    line-height: 1;
+    font-size: 1rem;
+  }
+
+  #text-container h2 {
+    font-size: 1.25rem;
+  }
+
+  #text-container button {
+    font-size: 1rem;
+  }
+  .bottom-half-container {
+    flex-direction: column;
+    margin-bottom: 40px;
+    margin-top: 100px;
+  }
+
+  #table-container {
+    order: 2;
+  }
+
+  #reviews-container {
+    order: 1;
+    margin-left: 10px;
+    margin-bottom: 30px;
+  }
+
+  #reviews-container h2 {
+    padding-bottom: 0;
+    line-height: 1;
+  }
+
+  #reviews-container ul {
+    line-height: 2.5;
+  }
+}

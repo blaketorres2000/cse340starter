@@ -2,15 +2,16 @@
 <html lang="en">
 <%- include('../partials/head') %>
 <body>
-    <div id="wrapper"> </div>
-        <%- include('../partials/header') %>
-        <%- include('../partials/navigation') %>
-
-        <main>
-        <%- body %>
-        </main>
-
-        <%- include('../partials/footer') %>
+    <img class="background-image" src="/images/site/small_check.jpg" alt="checkerboard background">
+    <div class="content-container">
+        <div id="wrapper">
+            <%- include('../partials/header') %>
+            <%- include('../partials/navigation') %>
+            <main>
+            <%- body %>
+            </main>
+            <%- include('../partials/footer') %>
+        </div>
     </div>
 </body>    
 </html>
