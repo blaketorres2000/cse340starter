@@ -18,15 +18,7 @@ body {
 
 /* Apply background image to the entire page */
 .background-image {
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  z-index: -1;
+  display: none;
 }
 
 /* Style the content container with a white background */
@@ -37,16 +29,17 @@ body {
   position: relative;
   top: 0;
   left: 0;
-  width: 90%;
-  height: 90%;
+  width: 100%;
+  height: 100%;
   z-index: -1;
   background-color: white;
-  padding: 20px;
+  padding: 10px;
   margin: 20px auto;
   max-width: 1200px;
-  border: rgb(43, 126, 153) 5px solid;
+  border: none;
   border-radius: 10px;
 }
+
 
 /************ Header Styles ***************/
 
@@ -57,14 +50,16 @@ body {
   text-decoration: none;
   padding-bottom: 20px;
   padding-left: 0;
+  text-align: left;
 }
 .siteName a{
   color: black;
-  font-size: 2rem;
+  font-size: 1.75rem;
   margin: 0;
   padding-left: 0;
   justify-content: center;
   text-decoration: none;
+  text-align: left;
 }
 
 #tools a{
@@ -97,10 +92,15 @@ nav li {
 
 /************ Main Styles ***************/
 
+main h1 {
+  font-size: 1.5rem;
+}
+
 .pic-text-container {
   position: relative;
-  margin-bottom: 80px;
+  margin-bottom: 40px;
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
   text-align: center;
@@ -122,11 +122,13 @@ nav li {
   top: 0;
   left: 0;
   right: 50%;
-  padding: 20px;
+  padding: 10px;
   z-index: 1;
-  width: 30%;
+  width: 40%;
   margin: 0 auto;
   text-align: left;
+  line-height: 1;
+  font-size: 1rem;
 }
 
 #text-container button {
@@ -135,7 +137,7 @@ nav li {
   border: none;
   padding: 10px 20px;
   border-radius: 5px;
-  font-size: 1.2rem;
+  font-size: 1.5rem;
   cursor: pointer;
   box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.5);
 }
@@ -146,19 +148,20 @@ nav li {
 
 .bottom-half-container {
   display: flex;
-  flex-direction: row;
-  margin-bottom: 80px;
+  flex-direction: column;
+  margin-bottom: 40px;
   align-self: flex-start;
   justify-content: space-evenly;
   align-items: flex-start;
   gap: 10px;
+  margin-top: 100px;
 }
 
 #table-container {
   text-align: left;
   justify-content: flex-start;
   align-self: flex-start;
-  order: 1;
+  order: 2;
 }
 
 #table-container h2 {
@@ -198,17 +201,21 @@ nav li {
   padding-left: 0;
   text-align: left;
   margin-top: -20px;
-  order: 2;
+  margin-left: 10px;
+  margin-bottom: 30px;
+  order: 1;
 }
 
 #reviews-container h2 {
   padding-left: 0;
   text-align: left;
+  padding-bottom: 0;
+  line-height: 1;
 }
 
 #reviews-container ul {
   list-style-position: inside;
-  line-height: 4;
+  line-height: 2.5;
   padding: 0;
 }
 
@@ -218,76 +225,71 @@ nav li {
 
 /************ Media Queries ***************/
 
-@media (max-width: 768px) {
+@media only screen and (min-width: 768px) {
 
   .background-image {
-    display: none;
+    display: block;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
   }
 
   .content-container {
-    width: 100%;
-    height: 100%;
-    padding: 10px;
-    border: none;
-  }  
-
-  #top-header {
-    text-align: left;
+    width: 90%;
+    height: 90%;
+    padding: 20px;
+    border: rgb(43, 126, 153) 5px solid;
   }
-
+  
   .siteName a{
-    font-size: 1.75rem;
-    text-align: left;
+    font-size: 2rem;
+    text-align: center;
   }  
 
   main h1 {
-    font-size: 1.5rem;
+    font-size: 2rem;
   }
 
   .pic-text-container {
-    flex-direction: column;
-    margin-bottom: 40px;
+    flex-direction: row;
+    margin-bottom: 80px;
   }
 
   #text-container {
-    width: 50%;
-    right: 0;
+    width: 30%;
     left: 0;
-    margin: 0;
-    padding: 10px;
-    line-height: 1;
-    font-size: 1rem;
+    padding: 20px;
+    font-size: 1.25rem;
   }
 
   #text-container h2 {
-    font-size: 1.25rem;
+    font-size: 1.2rem;
   }
 
   #text-container button {
     font-size: 1rem;
   }
+
   .bottom-half-container {
-    flex-direction: column;
-    margin-bottom: 40px;
-    margin-top: 100px;
+    flex-direction: row;
+    margin-bottom: 80px;
   }
 
   #table-container {
-    order: 2;
+    order: 1;
   }
 
   #reviews-container {
-    order: 1;
-    margin-left: 10px;
-    margin-bottom: 30px;
-  }
-
-  #reviews-container h2 {
-    padding-bottom: 0;
-    line-height: 1;
+    order: 2;
   }
 
   #reviews-container ul {
-    line-height: 2.5;
+    line-height: 4;
   }
 }
