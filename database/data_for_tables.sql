@@ -2,7 +2,7 @@ CREATE TYPE public.account_type AS ENUM
     ('Client', 'Employee', 'Admin');
 
 ALTER TYPE public.account_type
-    OWNER TO cse340bt;
+    OWNER TO cse_340;
 
 
 -- Table structure for table 'classification'
@@ -238,3 +238,10 @@ VALUES   (
     5
   );
 
+UPDATE inventory 
+SET inv_description = REPLACE(inv_description,'the small interior', 'a huge interior') 
+WHERE inv_model = 'Hummer';
+
+UPDATE inventory
+SET inv_image = CONCAT(SUBSTRING(inv_image, 1, 7), '/vehicles', SUBSTRING(inv_image, 8)),
+    inv_thumbnail = CONCAT(SUBSTRING(inv_thumbnail, 1, 7), '/vehicles', SUBSTRING(inv_thumbnail, 8));
