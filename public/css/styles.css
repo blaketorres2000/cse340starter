@@ -31,7 +31,6 @@ body {
   left: 0;
   width: 100%;
   height: 100%;
-  z-index: -1;
   background-color: white;
   padding: 10px;
   margin: 20px auto;
@@ -88,6 +87,14 @@ nav ul {
 nav li {
   padding: 10px;
   text-decoration: none;
+}
+
+nav a:hover {
+  cursor: pointer;
+  background-color: white;
+  color: black;
+  padding: 17px 0 17px 0;
+  transition: background-color 0.3s, color 0.3s;
 }
 
 /************ Main Styles ***************/
@@ -274,6 +281,10 @@ main h1 {
 
   #text-container button {
     font-size: 1rem;
+  }
+
+  #text-container button:hover {
+    cursor: pointer;
   }
 
   .bottom-half-container {
