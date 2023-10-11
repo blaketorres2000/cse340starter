@@ -4,7 +4,7 @@
   "description": "Starter project for CSE 340",
   "main": "server.js",
   "scripts": {
-    "start": "node server.js",
+    "start": "pnpm start",
     "dev": "nodemon server.js"
   },
   "author": "",
@@ -12,6 +12,7 @@
   "dependencies": {
     "dotenv": "^16.0.3",
     "express": "^4.18.2",
+    "express-ejs-layouts": "^2.5.0",
     "pg": "^8.8.0"
   },
   "devDependencies": {
