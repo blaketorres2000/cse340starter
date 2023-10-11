@@ -4,18 +4,18 @@
   "description": "Starter project for CSE 340",
   "main": "server.js",
   "scripts": {
-    "start": "pnpm start",
+    "start": "node server.js",
     "dev": "nodemon server.js"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "dotenv": "^16.0.3",
+    "dotenv": "^16.3.1",
     "express": "^4.18.2",
-    "express-ejs-layouts": "^2.5.0",
-    "pg": "^8.8.0"
+    "express-ejs-layouts": "^2.5.1",
+    "pg": "^8.11.3"
   },
   "devDependencies": {
-    "nodemon": "^2.0.15"
+    "nodemon": "^2.0.22"
   }
 }

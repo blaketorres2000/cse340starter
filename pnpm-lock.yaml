@@ -6,21 +6,21 @@ settings:
 
 dependencies:
   dotenv:
-    specifier: ^16.0.3
+    specifier: ^16.3.1
     version: 16.3.1
   express:
     specifier: ^4.18.2
     version: 4.18.2
   express-ejs-layouts:
-    specifier: ^2.5.0
+    specifier: ^2.5.1
     version: 2.5.1
   pg:
-    specifier: ^8.8.0
+    specifier: ^8.11.3
     version: 8.11.3
 
 devDependencies:
   nodemon:
-    specifier: ^2.0.15
+    specifier: ^2.0.22
     version: 2.0.22
 
 packages:
@@ -296,7 +296,7 @@ packages:
     resolution: {integrity: sha512-2DcsyfABl+gVHEfCOaTrWgyt+tb6MSEGmKq+kI5HwLbIYgjgmMcV8KQ41uaKz1xxUcn9tJtgFbQUEVcEbd0FYw==}
     dependencies:
       function-bind: 1.1.1
-      has: 1.0.3
+      has: 1.0.4
       has-proto: 1.0.1
       has-symbols: 1.0.3
     dev: false
@@ -323,11 +323,9 @@ packages:
     engines: {node: '>= 0.4'}
     dev: false
 
-  /has@1.0.3:
-    resolution: {integrity: sha512-f2dvO0VU6Oej7RkWJGrehjbzMAjFp5/VKPp5tTpWIV4JHHZK1/BxbFRtf/siA2SWTe09caDmVtYYzWEIbBS4zw==}
+  /has@1.0.4:
+    resolution: {integrity: sha512-qdSAmqLF6209RFj4VVItywPMbm3vWylknmB3nvNiUIs72xAimcM8nVYxYr7ncvZq5qzk9MKIZR8ijqD/1QuYjQ==}
     engines: {node: '>= 0.4.0'}
-    dependencies:
-      function-bind: 1.1.1
     dev: false
 
   /http-errors@2.0.0:
