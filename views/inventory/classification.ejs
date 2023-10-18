@@ -25,7 +25,7 @@
                       <%= vehicle.inv_make %> <%= vehicle.inv_model %>
                   </a>
               </h2>
-              <span>$<%= new Intl.NumberFormat('en-US').format(vehicle.inv_price) %></span>
+              <span class="veh-price">$<%= new Intl.NumberFormat('en-US').format(vehicle.inv_price) %></span>
           </div>
       </div>
   <% }); %>

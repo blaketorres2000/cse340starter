@@ -13,6 +13,7 @@ const static = require("./routes/static")
 const baseController = require("./controllers/baseController")
 const inventoryRoute = require("./routes/inventoryRoute")
 const utilities = require("./utilities/")
+const errorHandlerMiddleware = require('./utilities/errorHandlerMiddleware');
 
 /* ***********************
  * View Engine and Templates
@@ -20,6 +21,8 @@ const utilities = require("./utilities/")
 app.set("view engine", "ejs")
 app.use(expressLayouts)
 app.set("layout", "./layouts/layout") // not at views root
+app.use(express.static("public"))
+app.use(errorHandlerMiddleware);
 
 /* ***********************
  * Routes
@@ -29,10 +32,12 @@ app.use(static)
 app.get("/", utilities.handleErrors(baseController.buildHome))
 // Inventory routes
 app.use("/inv", inventoryRoute)
-// File Not Found Route - must be last route in list
+// // 500 Type Error Route
+app.use('/error', require('./routes/errorRoute'));
+// File Not Found Route - must be last route in the list
 app.use(async (req, res, next) => {
-  next({status: 404, message: 'Sorry, we appear to have lost that page.'})
-})
+  next({ status: 404, message: 'Sorry, this page seems to be lost just like these lost boys.' });
+});
 
 /* ***********************
 * Express Error Handler
@@ -41,7 +46,7 @@ app.use(async (req, res, next) => {
 app.use(async (err, req, res, next) => {
   let nav = await utilities.getNav()
   console.error(`Error at: "${req.originalUrl}": ${err.message}`)
-  if(err.status == 404){ message = err.message} else {message = 'Oh no! There was a crash. Guess it was not meant to be.'}
+  if(err.status == 404){ message = err.message} else {message = 'Oh no! There was problem. Don\'t stay lost though. Head back to the home page.'}
   res.render("errors/error", {
     title: err.status || 'Server Error',
     message,

@@ -1,0 +1,40 @@
+<!-- This is the Title -->
+<% if (title) { %>
+    <h1 class="detail-title">
+        <%= title %>
+    </h1>
+    <% } else { res.redirect('/') } %>
+
+        <!-- Display vehicle details -->
+        <div class="vehicle-details">
+            <div class="vehicle-image">
+                <img src="<%= vehicleDetailHTML.inv_image %>"
+                    alt="<%= vehicleDetailHTML.inv_make %> <%= vehicleDetailHTML.inv_model %>">
+            </div>
+
+            <div class="vehicle-info">
+                <h2><%= vehicleDetailHTML.inv_make + " " + vehicleDetailHTML.inv_model + " Details"%></h2>
+                <p class="price-o-vehicle"><strong>Price:</strong> $<%= new
+                        Intl.NumberFormat('en-US').format(vehicleDetailHTML.inv_price) %>
+                </p>
+
+                <div class="vehicle-description">
+                    <p><strong>Year:</strong>
+                        <%= vehicleDetailHTML.inv_year %>
+                    </p>
+                    <p><strong>Mileage:</strong>
+                        <%= new Intl.NumberFormat('en-US').format(vehicleDetailHTML.inv_miles) %> miles
+                    </p>
+                    <p><strong>Color:</strong>
+                        <%= vehicleDetailHTML.inv_color %>
+                    </p>
+                </div>
+
+                <div class="vehicle-details-description">
+                    <h3>Description:</h3>
+                    <p>
+                        <%= vehicleDetailHTML.inv_description %>
+                    </p>
+                </div>
+            </div>
+        </div>

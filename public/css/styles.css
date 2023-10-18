@@ -12,7 +12,7 @@ body {
   font-family: 'Roboto', sans-serif;
   font-size: 16px;
   line-height: 1.5;
-  margin: 0;
+  margin: 0 auto;
   padding: 0;
 }
 
@@ -123,8 +123,8 @@ nav ul {
   nav.responsive ul {
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    align-items: center;
+    justify-content: flex-start;
+    align-items: flex-start;
     list-style: none;
   }
 
@@ -287,9 +287,121 @@ nav ul {
     color: black;
   }
 
+  .veh-price {
+    font-size: 1.25rem;
+  }
+
+    /************ Display Cars Individually with Details ***************/
+    .vehicle-details {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+    }
+
+    .detail-title {
+      font-size: 2rem;
+      text-align: center;
+      margin-top: 30px;
+    }
+    
+    .vehicle-info {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin-top: 20px;
+    }
+
+    .vehicle-info h2 {
+      text-decoration: underline;
+    }
+    
+    .vehicle-image img {
+      width: 100%;
+      margin: 0 auto;
+    }
+
+    .price-o-vehicle {
+      font-size: 1.5rem;
+      margin-top: 20px;
+      background-color: rgba(106, 106, 106, 0.094);
+      color: black;
+      padding: 10px;
+      box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.534);
+      border-radius: 5px;
+      border: 2px solid rgba(43, 125, 153, 0.234);
+    }
+    
+    .vehicle-description {
+      margin-top: 10px;
+      font-size: 1.25rem;
+      background-color: rgba(106, 106, 106, 0.094);
+      color: black;
+      padding: 10px;
+      box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.534);
+      border-radius: 5px;
+      border: 2px solid rgba(43, 125, 153, 0.234);
+    }
+    
+    .vehicle-description p {
+      margin: 5px 0;
+    }
+    
+    .vehicle-details-description {
+      margin: 20px;
+      text-align: left;
+      background-color: rgba(106, 106, 106, 0.094);
+      color: black;
+      padding: 10px;
+      box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.534);
+      border-radius: 5px;
+      border: 2px solid rgba(43, 125, 153, 0.234);
+    }
+    
+    .vehicle-details-description h3 {
+      text-align: center;
+      font-size: 1.5rem;
+      text-decoration: underline;
+    }
+    
+    .vehicle-details-description p {
+      font-size: 1rem;
+      text-align: left;
+    }
+  
+  /************ Error Page Styles ***************/
+
+  #lost-boys {
+    width: 100%;
+  }
+
+  .error-container {
+    position: relative;
+}
+
+.lost-message {
+    position: absolute;
+    top: 0;
+    left: 0;
+    color: white;
+    padding: 10px;
+    margin: 0;
+    font-size: 2rem;
+}
+
+
   /************ Footer Styles ***************/
 
+  footer {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+  }
 
+  .copyright {
+    margin-right: 30px;
+  }
 
   /************ Media Queries ***************/
 
@@ -385,4 +497,37 @@ nav ul {
     #reviews-container ul {
       line-height: 4;
     }
+
+    .detail-title {
+      text-align: left;
+    }
+
+    .vehicle-details {
+      flex-direction: row;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .vehicle-image{
+      width: 100%;
+      flex: 1;
+    }
+  
+    .vehicle-info {
+      margin-left: 40px;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+      text-align: left;
+      margin-right: 30px;
+      flex: 1;
+    }
+
+    .vehicle-details-description {
+      margin: 40px 0 40px 0;
+    }
+
+    .lost-message {
+      font-size: 3rem;
+  }
+  
   }
