@@ -1,0 +1,82 @@
+<div class="add-class-view">
+    <% if (title) { %>
+        <h1 class="form-title">
+            <%= title %>
+        </h1>
+        <% } else { %>
+            <% res.redirect('/') %>
+                <% } %>
+                    <%- messages() %>
+                        <% let errors=locals.errors %>
+                            <% if (errors) { %>
+                                <ul class="notice">
+                                    <% errors.array().forEach(error=> { %>
+                                        <li>
+                                            <%= error.msg %>
+                                        </li>
+                                        <% }) %>
+                                </ul>
+                                <% } %>
+
+                                    <form action="/inv/add-vehicle" method="POST" id="add-class-form">
+                                        <div class="form-group">
+                                            <label for="classification_id">Classification:</label>
+                                            <%- classificationDropdown %>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="inv_make">Make:</label>
+                                            <input type="text" id="inv_make" name="inv_make" required minlength="3"
+                                                placeholder="Enter at least 3 characters" value="<%= locals.inv_make %>"
+                                                oninput="setInputColor(this)">
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="inv_model">Model:</label>
+                                            <input type="text" id="inv_model" name="inv_model" required minlength="3"
+                                                placeholder="Enter at least 3 characters"
+                                                value="<%= locals.inv_model %>" oninput="setInputColor(this)">
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="inv_description">Description:</label>
+                                            <input type="text" id="inv_description" name="inv_description" required
+                                                placeholder="Enter a description for the vehicle"
+                                                value="<%= locals.inv_description %>" oninput="setInputColor(this)">
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="inv_image">Image Path:</label>
+                                            <input type="text" id="inv_image" name="inv_image" required
+                                                value="/images/vehicles/no-image.png" oninput="setInputColor(this)">
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="inv_thumbnail">Thumbnail Path:</label>
+                                            <input type="text" id="inv_thumbnail" name="inv_thumbnail" required
+                                                value="/images/vehicles/no-image.png" oninput="setInputColor(this)">
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="inv_price">Price:</label>
+                                            <input type="text" id="inv_price" name="inv_price" required
+                                                pattern="^[0-9]+(\.[0-9]{1,2})?$" placeholder="Decimal or interger"
+                                                value="<%= locals.inv_price %>" oninput="setInputColor(this)">
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="inv_year">Year:</label>
+                                            <input type="text" id="inv_year" name="inv_year" required
+                                                pattern="^[1-9][0-9][0-9][0-9]$" placeholder="Enter a 4 digit year"
+                                                value="<%= locals.inv_year %>" oninput="setInputColor(this)">
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="inv_miles">Miles:</label>
+                                            <input type="text" id="inv_miles" name="inv_miles" required
+                                                pattern="^[0-9]+$" placeholder="Enter miles"
+                                                value="<%= locals.inv_miles %>" oninput="setInputColor(this)">
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="inv_color">Color:</label>
+                                            <input type="text" id="inv_color" name="inv_color" required
+                                                pattern="[A-Za-z]+" placeholder="Enter the color"
+                                                value="<%= locals.inv_color %>" oninput="setInputColor(this)">
+                                        </div>
+                                        <div class="form-group">
+                                            <button type="submit">Add Vehicle</button>
+                                        </div>
+                                    </form>
+</div>

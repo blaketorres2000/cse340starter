@@ -1,0 +1,33 @@
+<div class="add-class-view">
+    <% if (title) { %>
+        <h1 class="form-title">
+            <%= title %>
+        </h1>
+        <% } else { %>
+            <% res.redirect('/') %>
+                <% } %>
+                    <%- messages() %>
+                        <% let errors=locals.errors %>
+                            <% if (errors) { %>
+                                <ul class="notice">
+                                    <% errors.array().forEach(error=> { %>
+                                        <li>
+                                            <%= error.msg %>
+                                        </li>
+                                        <% }) %>
+                                </ul>
+                                <% } %>
+
+                                    <form action="/inv/add-classification" method="POST" id="add-class-form">
+                                        <div class="form-group">
+                                            <label for="classification_name">Enter New Classification:</label>
+                                            <input type="text" id="classification_name" name="classification_name"
+                                                required pattern="^[a-zA-Z0-9]+$"
+                                                title="Classification name cannot contain spaces or special characters" 
+                                                value="<%= locals.classification_name %>">
+                                        </div>
+                                        <div class="form-group">
+                                            <button type="submit">Add Classification</button>
+                                        </div>    
+                                    </form>
+</div>

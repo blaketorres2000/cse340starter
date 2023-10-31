@@ -47,9 +47,10 @@ body {
   flex-direction: row;
   justify-content: space-between;
   text-decoration: none;
-  padding-bottom: 20px;
+  padding-bottom: 10px;
   padding-left: 0;
   text-align: left;
+  align-items: center;
 }
 
 .siteName a {
@@ -57,17 +58,23 @@ body {
   font-size: 1.75rem;
   margin: 0;
   padding-left: 0;
-  justify-content: center;
   text-decoration: none;
   text-align: left;
 }
 
 #tools a {
+  font-size: 18px;
   color: black;
   display: flex;
   justify-content: center;
-  padding-right: 20px;
+  padding: 20px;
   text-decoration: none;
+}
+
+#tools a:hover {
+  background-color: rgb(43, 126, 153);
+  border-radius: 5px;
+  color: white;
 }
 
 /************ Navigation Styles ***************/
@@ -103,81 +110,549 @@ nav ul {
   position: relative;
 }
 
-  nav a {
+nav a {
+  display: block;
+  /* width: 100px; */
+  color: white;
+  text-decoration: none;
+  font-size: 1.25rem;
+  text-align: center;
+  padding: 7px;
+}
+
+nav a:hover {
+  cursor: pointer;
+  background-color: white;
+  color: black;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+nav.responsive ul {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  list-style: none;
+}
+
+/* Style for active links */
+nav ul li a.active {
+  background-color: rgb(109, 165, 184);
+  text-decoration: none;
+  color: black;
+}
+
+/************ Main Styles ***************/
+
+main h1 {
+  font-size: 1.5rem;
+}
+
+.pic-text-container {
+  position: relative;
+  margin-bottom: 40px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.image-wrapper {
+  flex-shrink: 0;
+  position: relative;
+}
+
+#car {
+  max-width: 100%;
+}
+
+#text-container {
+  color: rgb(43, 126, 153);
+  background-color: rgba(255, 255, 255, 0.896);
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 50%;
+  padding: 10px;
+  z-index: 1;
+  width: 40%;
+  margin: 0 auto;
+  text-align: left;
+  line-height: 1;
+  font-size: 1rem;
+}
+
+#text-container button {
+  background-color: rgb(43, 126, 153);
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  font-size: 1.5rem;
+  cursor: pointer;
+  box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.5);
+}
+
+#text-container button:hover {
+  cursor: pointer;
+}
+
+.bottom-half-container {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 40px;
+  align-self: flex-start;
+  justify-content: space-evenly;
+  align-items: flex-start;
+  gap: 10px;
+  margin-top: 100px;
+}
+
+#table-container {
+  text-align: left;
+  justify-content: flex-start;
+  align-self: flex-start;
+  order: 2;
+}
+
+#table-container h2 {
+  margin-top: 0;
+  text-align: left;
+  margin-left: 10px;
+}
+
+.image-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 5px;
+}
+
+.upgrade-item {
+  padding: 10px;
+  text-align: center;
+  text-decoration: underline;
+  color: rgb(43, 126, 153);
+}
+
+.upgrade-item img {
+  background-color: rgb(109, 165, 184);
+  padding: 25%;
+  border: rgb(43, 126, 153) 2px solid;
+  width: 100%;
+  height: 100%;
+  max-width: 200px;
+  max-height: 160px;
+}
+
+#reviews-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-self: flex-start;
+  padding-left: 0;
+  text-align: left;
+  margin-top: -20px;
+  margin-left: 10px;
+  margin-bottom: 30px;
+  order: 1;
+}
+
+#reviews-container h2 {
+  padding-left: 0;
+  text-align: left;
+  padding-bottom: 0;
+  line-height: 1;
+}
+
+#reviews-container ul {
+  list-style-position: inside;
+  line-height: 2.5;
+  padding: 0;
+}
+
+/************ Display Cars as Cards Styles ***************/
+.card-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.card {
+  border: 1px solid #adadad;
+  border-radius: 5px;
+  box-shadow: 0 6px 8px rgba(0, 0, 0, 0.341);
+  width: 300px;
+  padding: 10px;
+}
+
+.card img {
+  width: 100%;
+  height: auto;
+}
+
+.card-info {
+  margin-top: 10px;
+  text-align: center;
+}
+
+.card-info a {
+  text-decoration: none;
+  color: black;
+}
+
+.veh-price {
+  font-size: 1.25rem;
+}
+
+/************ Display Cars Individually with Details ***************/
+.vehicle-details {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.detail-title {
+  font-size: 2rem;
+  text-align: center;
+  margin-top: 30px;
+}
+
+.vehicle-info {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 20px;
+}
+
+.vehicle-info h2 {
+  text-decoration: underline;
+}
+
+.vehicle-image img {
+  width: 100%;
+  margin: 0 auto;
+}
+
+.price-o-vehicle {
+  font-size: 1.5rem;
+  margin-top: 20px;
+  background-color: rgba(106, 106, 106, 0.094);
+  color: black;
+  padding: 10px;
+  box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.534);
+  border-radius: 5px;
+  border: 2px solid rgba(43, 125, 153, 0.234);
+}
+
+.vehicle-description {
+  margin-top: 10px;
+  font-size: 1.25rem;
+  background-color: rgba(106, 106, 106, 0.094);
+  color: black;
+  padding: 10px;
+  box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.534);
+  border-radius: 5px;
+  border: 2px solid rgba(43, 125, 153, 0.234);
+}
+
+.vehicle-description p {
+  margin: 5px 0;
+}
+
+.vehicle-details-description {
+  margin: 20px;
+  max-width: 450px;
+  text-align: left;
+  background-color: rgba(106, 106, 106, 0.094);
+  color: black;
+  padding: 10px;
+  box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.534);
+  border-radius: 5px;
+  border: 2px solid rgba(43, 125, 153, 0.234);
+}
+
+.vehicle-details-description h3 {
+  text-align: center;
+  font-size: 1.5rem;
+  text-decoration: underline;
+}
+
+.vehicle-details-description p {
+  font-size: 1rem;
+  text-align: left;
+}
+
+/************ Error Page Styles ***************/
+
+#lost-boys {
+  width: 100%;
+}
+
+.error-container {
+  position: relative;
+}
+
+.lost-message {
+  position: absolute;
+  top: 0;
+  left: 0;
+  color: white;
+  padding: 10px;
+  margin: 0;
+  font-size: 2rem;
+}
+
+/************ Form Styles ***************/
+.login-page, .register-page {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 30px;
+} 
+
+.form-title {
+  font-size: 2rem;
+  margin-bottom: 20px;
+}
+
+#login-form {
+  background-color: white;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  max-width: 400px;
+  margin: 0 auto;
+  margin-top: 10px;
+  padding: 20px;
+  margin-bottom: 50px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.form-group {
+  margin-bottom: 30px;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 5px;
+  font-size: 20px;
+  font-weight: bold;
+  color: #3a3a3a;
+}
+
+.form-group input {
+  width: 350px;
+  height: 30px;
+  font-size: 18px;
+}
+
+.form-group [type="submit"] {
+  background-color: rgb(43, 126, 153);
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  padding: 11px 15px;
+  font-size: 18px;
+  transition: background-color 0.3s;
+}
+
+.form-group [type="submit"]:hover {
+  background-color: black;
+  transition: background-color 0.3s;
+}
+
+#passbutton {
+  border: 1px solid gray;
+  padding: 3px;
+  font-size: 15px;
+}
+
+#passbutton:hover {
+  background-color: black;
+  color: white;
+  cursor: pointer;
+}
+
+/************ Success Message Styles ***************/
+.success-message {
+  list-style: none;
+  font-size: 1.5rem;
+  font-style: italic;
+  text-decoration: underline;
+}
+
+.success-message li {
+  list-style: none;
+}
+
+/************ Vehicle Management Styles ***************/
+.manage-view, .add-class-view {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 30px;
+}
+
+.manage-links {
+  border: black 2px solid;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  margin-top: 25px;
+  margin-bottom: 50px;
+  gap: 20px;
+  font-size: large;
+  padding: 30px;
+  border-radius: 5px;
+}
+
+.manage-links a {
+  color: white;
+  border: 1px solid gray;
+  border-radius: 5px;
+  padding: 5px;
+  background-color: rgb(43, 126, 153);;
+  max-width: 250px;
+}
+
+.manage-links a:hover {
+  color: white;
+  background-color: black;
+}
+
+#add-class-form {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  margin-top: 30px;
+  padding: 30px 20px;
+  border: 1px solid gray;
+  border-radius: 10px;
+}
+
+#inv_description {
+  height: 200px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+}
+
+input.valid {
+  background-color: rgba(1, 212, 1, 0.205);
+}
+
+input.invalid {
+  background-color: rgba(255, 0, 0, 0.137);
+}
+
+.form-group select {
+  width: 350px;
+  font-size: 20px;
+}
+
+/************ Footer Styles ***************/
+
+footer {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.copyright {
+  margin-right: 30px;
+}
+
+
+/************ Media Queries ***************/
+
+@media only screen and (min-width: 768px) {
+
+  .background-image {
     display: block;
-    width: 100px;
-    color: white;
-    text-decoration: none;
-    font-size: 1.25rem;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+  }
+
+  .content-container {
+    width: 90%;
+    height: 90%;
+    padding: 20px;
+    border: rgb(43, 126, 153) 5px solid;
+  }
+
+  .siteName a {
+    font-size: 2rem;
     text-align: center;
-    padding: 7px;
   }
-
-  nav a:hover {
-    cursor: pointer;
-    background-color: white;
-    color: black;
-    transition: background-color 0.3s, color 0.3s;
-  }
-
-  nav.responsive ul {
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    align-items: flex-start;
-    list-style: none;
-  }
-
-  /************ Main Styles ***************/
 
   main h1 {
-    font-size: 1.5rem;
+    font-size: 2rem;
+  }
+
+  nav li:first-child {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  nav .menu-toggle {
+    display: none;
+    /* Hide the menu button for large screens */
+  }
+
+  nav {
+    width: 100%;
+    overflow: auto;
+  }
+
+  nav ul {
+    display: flex;
+    flex-direction: row;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    justify-content: flex-start;
+  }
+
+  nav li {
+    flex: 1;
   }
 
   .pic-text-container {
-    position: relative;
-    margin-bottom: 40px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-  }
-
-  .image-wrapper {
-    flex-shrink: 0;
-    position: relative;
-  }
-
-  #car {
-    max-width: 100%;
+    flex-direction: row;
+    margin-bottom: 80px;
   }
 
   #text-container {
-    color: rgb(43, 126, 153);
-    background-color: rgba(255, 255, 255, 0.896);
-    position: absolute;
-    top: 0;
+    width: 30%;
     left: 0;
-    right: 50%;
-    padding: 10px;
-    z-index: 1;
-    width: 40%;
-    margin: 0 auto;
-    text-align: left;
-    line-height: 1;
-    font-size: 1rem;
+    padding: 20px;
+    font-size: 1.25rem;
+  }
+
+  #text-container h2 {
+    font-size: 1.2rem;
   }
 
   #text-container button {
-    background-color: rgb(43, 126, 153);
-    color: white;
-    border: none;
-    padding: 10px 20px;
-    border-radius: 5px;
-    font-size: 1.5rem;
-    cursor: pointer;
-    box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.5);
+    font-size: 1rem;
   }
 
   #text-container button:hover {
@@ -185,349 +660,54 @@ nav ul {
   }
 
   .bottom-half-container {
-    display: flex;
-    flex-direction: column;
-    margin-bottom: 40px;
-    align-self: flex-start;
-    justify-content: space-evenly;
-    align-items: flex-start;
-    gap: 10px;
-    margin-top: 100px;
+    flex-direction: row;
+    margin-bottom: 80px;
   }
 
   #table-container {
-    text-align: left;
-    justify-content: flex-start;
-    align-self: flex-start;
-    order: 2;
-  }
-
-  #table-container h2 {
-    margin-top: 0;
-    text-align: left;
-    margin-left: 10px;
-  }
-
-  .image-grid {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 5px;
-  }
-
-  .upgrade-item {
-    padding: 10px;
-    text-align: center;
-    text-decoration: underline;
-    color: rgb(43, 126, 153);
-  }
-
-  .upgrade-item img {
-    background-color: rgb(109, 165, 184);
-    padding: 25%;
-    border: rgb(43, 126, 153) 2px solid;
-    width: 100%;
-    height: 100%;
-    max-width: 200px;
-    max-height: 160px;
-  }
-
-  #reviews-container {
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    align-self: flex-start;
-    padding-left: 0;
-    text-align: left;
-    margin-top: -20px;
-    margin-left: 10px;
-    margin-bottom: 30px;
     order: 1;
   }
 
-  #reviews-container h2 {
-    padding-left: 0;
-    text-align: left;
-    padding-bottom: 0;
-    line-height: 1;
+  #reviews-container {
+    order: 2;
   }
 
   #reviews-container ul {
-    list-style-position: inside;
-    line-height: 2.5;
-    padding: 0;
+    line-height: 4;
   }
 
-  /************ Display Cars as Cards Styles ***************/
-  .card-container {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 20px;
+  .detail-title {
+    text-align: left;
   }
 
-  .card {
-    border: 1px solid #adadad;
-    border-radius: 5px;
-    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.341);
-    width: 300px;
-    padding: 10px;
-  }
-
-  .card img {
-    width: 100%;
-    height: auto;
-  }
-
-  .card-info {
-    margin-top: 10px;
-    text-align: center;
-  }
-
-  .card-info a {
-    text-decoration: none;
-    color: black;
-  }
-
-  .veh-price {
-    font-size: 1.25rem;
-  }
-
-    /************ Display Cars Individually with Details ***************/
-    .vehicle-details {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      text-align: center;
-    }
-
-    .detail-title {
-      font-size: 2rem;
-      text-align: center;
-      margin-top: 30px;
-    }
-    
-    .vehicle-info {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      margin-top: 20px;
-    }
-
-    .vehicle-info h2 {
-      text-decoration: underline;
-    }
-    
-    .vehicle-image img {
-      width: 100%;
-      margin: 0 auto;
-    }
-
-    .price-o-vehicle {
-      font-size: 1.5rem;
-      margin-top: 20px;
-      background-color: rgba(106, 106, 106, 0.094);
-      color: black;
-      padding: 10px;
-      box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.534);
-      border-radius: 5px;
-      border: 2px solid rgba(43, 125, 153, 0.234);
-    }
-    
-    .vehicle-description {
-      margin-top: 10px;
-      font-size: 1.25rem;
-      background-color: rgba(106, 106, 106, 0.094);
-      color: black;
-      padding: 10px;
-      box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.534);
-      border-radius: 5px;
-      border: 2px solid rgba(43, 125, 153, 0.234);
-    }
-    
-    .vehicle-description p {
-      margin: 5px 0;
-    }
-    
-    .vehicle-details-description {
-      margin: 20px;
-      text-align: left;
-      background-color: rgba(106, 106, 106, 0.094);
-      color: black;
-      padding: 10px;
-      box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.534);
-      border-radius: 5px;
-      border: 2px solid rgba(43, 125, 153, 0.234);
-    }
-    
-    .vehicle-details-description h3 {
-      text-align: center;
-      font-size: 1.5rem;
-      text-decoration: underline;
-    }
-    
-    .vehicle-details-description p {
-      font-size: 1rem;
-      text-align: left;
-    }
-  
-  /************ Error Page Styles ***************/
-
-  #lost-boys {
-    width: 100%;
-  }
-
-  .error-container {
-    position: relative;
-}
-
-.lost-message {
-    position: absolute;
-    top: 0;
-    left: 0;
-    color: white;
-    padding: 10px;
-    margin: 0;
-    font-size: 2rem;
-}
-
-
-  /************ Footer Styles ***************/
-
-  footer {
-    display: flex;
+  .vehicle-details {
     flex-direction: row;
     align-items: center;
-    justify-content: flex-start;
+    justify-content: space-between;
   }
 
-  .copyright {
+  .vehicle-image {
+    width: 100%;
+    flex: 1;
+  }
+
+  .vehicle-info {
+    margin-left: 40px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: left;
     margin-right: 30px;
+    flex: 1;
   }
 
-  /************ Media Queries ***************/
-
-  @media only screen and (min-width: 768px) {
-
-    .background-image {
-      display: block;
-      background-size: cover;
-      background-position: center;
-      background-repeat: no-repeat;
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      z-index: -1;
-    }
-
-    .content-container {
-      width: 90%;
-      height: 90%;
-      padding: 20px;
-      border: rgb(43, 126, 153) 5px solid;
-    }
-
-    .siteName a {
-      font-size: 2rem;
-      text-align: center;
-    }
-
-    main h1 {
-      font-size: 2rem;
-    }
-
-    nav li:first-child {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-    }
-
-    nav .menu-toggle {
-      display: none;
-      /* Hide the menu button for large screens */
-    }
-
-    nav ul {
-      display: flex;
-      flex-direction: row;
-      list-style: none;
-      padding: 0;
-      margin: 0;
-      display: flex;
-      justify-content: space-around;
-    }
-
-    .pic-text-container {
-      flex-direction: row;
-      margin-bottom: 80px;
-    }
-
-    #text-container {
-      width: 30%;
-      left: 0;
-      padding: 20px;
-      font-size: 1.25rem;
-    }
-
-    #text-container h2 {
-      font-size: 1.2rem;
-    }
-
-    #text-container button {
-      font-size: 1rem;
-    }
-
-    #text-container button:hover {
-      cursor: pointer;
-    }
-
-    .bottom-half-container {
-      flex-direction: row;
-      margin-bottom: 80px;
-    }
-
-    #table-container {
-      order: 1;
-    }
-
-    #reviews-container {
-      order: 2;
-    }
-
-    #reviews-container ul {
-      line-height: 4;
-    }
-
-    .detail-title {
-      text-align: left;
-    }
-
-    .vehicle-details {
-      flex-direction: row;
-      align-items: center;
-      justify-content: space-between;
-    }
-    .vehicle-image{
-      width: 100%;
-      flex: 1;
-    }
-  
-    .vehicle-info {
-      margin-left: 40px;
-      display: flex;
-      flex-direction: column;
-      align-items: flex-end;
-      text-align: left;
-      margin-right: 30px;
-      flex: 1;
-    }
-
-    .vehicle-details-description {
-      margin: 40px 0 40px 0;
-    }
-
-    .lost-message {
-      font-size: 3rem;
+  .vehicle-details-description {
+    margin: 40px 0 40px 0;
+    max-width: 350px;
   }
-  
+
+  .lost-message {
+    font-size: 3rem;
   }
+
+}

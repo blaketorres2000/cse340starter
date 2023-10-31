@@ -1,0 +1,25 @@
+<div class="manage-view">
+    <% if (title) { %>
+        <h1 class="form-title">
+            <%= title %>
+        </h1>
+        <% } else { %>
+            <% res.redirect('/') %>
+                <% } %>
+                    <%- messages() %>
+                        <% let errors = locals.errors %>
+                        <% if (errors) { %>
+                            <ul class="notice">
+                                <% errors.array().forEach(error=> { %>
+                                    <li>
+                                        <%= error.msg %>
+                                    </li>
+                                    <% }) %>
+                            </ul>
+                            <% } %>
+
+                            <div class="manage-links">
+                                <a href="./add-classification">Add New Classification</a>
+                                <a href="./add-vehicle">Add New Vehicle</a>
+                            </div>
+</div>
