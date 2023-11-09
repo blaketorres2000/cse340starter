@@ -50,7 +50,6 @@ Util.getClassificationDropdown = async function (
     if (row.classification_id === selectedClassificationId) {
       dropdown += " selected";
     }
-    console.log("This sucks");
     dropdown += ">" + row.classification_name + "</option>";
   });
   dropdown += "</select>";
