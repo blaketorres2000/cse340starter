@@ -57,7 +57,7 @@ invCont.showVehicleDetail = async function (req, res, next) {
     }
 
     const nav = await Util.getNav();
-    res.render("inventory/detail", {
+    res.render("./inventory/detail", {
       title:
         vehicle.inv_year + " " + vehicle.inv_make + " " + vehicle.inv_model,
       nav,
@@ -147,7 +147,6 @@ invCont.renderAddVehicleView = async function (req, res, next) {
   try {
     let nav = await Util.getNav();
     let classificationDropdown = await Util.getClassificationDropdown();
-
     res.render("./inventory/add-vehicle", {
       title: "Add New Vehicle",
       nav,
@@ -199,17 +198,19 @@ invCont.addVehicle = async function (req, res) {
         `The ${inv_make} ${inv_model} has been added to inventory.`
       );
       // Clear and rebuild the navigation before rendering the management view
-      const nav = await Util.getNav();
-      res.status(201).render("inventory/management", {
+      let nav = await Util.getNav();
+        res.status(201).render("./inventory/management", {
         title: "Inventory Management",
         nav,
       });
     } else {
       req.flash("notice", "Sorry, adding the vehicle failed.");
+      let classificationDropdown = await Util.getClassificationDropdown();
       // Render the add-vehicle view with an error message
-      res.status(501).render("inventory/add-vehicle", {
+      res.status(501).render("./inventory/add-vehicle", {
         title: "Add New Vehicle",
         nav,
+        classificationDropdown,
       });
     }
   } catch (error) {

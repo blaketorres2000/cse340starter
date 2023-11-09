@@ -42,6 +42,7 @@ router.get(
   Util.handleErrors(invController.renderAddVehicleView)
 );
 
+
 // Process adding new vehicle
 router.post(
   "/add-vehicle",
@@ -49,6 +50,13 @@ router.post(
   invValidate.checkVehicleData,
   Util.handleErrors(invController.addVehicle)
 );
+
+// New route for rendering the 'add-vehicle' view with the classification dropdown
+router.get('/add-vehicle', async (req, res) => {
+  const selectedClassificationId = req.query.selectedClassificationId;
+  const dropdown = await Util.getClassificationDropdown(req, res, null, selectedClassificationId);
+  res.render('add-vehicle', { dropdown });
+});
 
 // Add a catch-all route for 404 errors
 router.use(Util.handleErrors);

@@ -98,25 +98,39 @@ inv_validate.addVehicleRules = () => {
 
     // Price is required and must be numeric
     body("inv_price")
-      .trim()
-      .isLength({ min: 1 })
-      .isNumeric()
-      .withMessage("Please provide a numerical price."),
-
-    // Year is required and must be a 4 digit year
+    .trim()
+    .custom((value) => {
+      // Check if the value is numeric with an optional decimal
+      if (!/^\d+(\.\d{1,2})?$/.test(value)) {
+        throw new Error("Please provide a valid price with up to two decimal places.");
+      }
+      return true;
+    })
+    .withMessage("Please provide a valid price with up to two decimal places."),
+  
+    // Year is required and must be 4 digits
     body("inv_year")
       .trim()
-      .isLength({ min: 4 })
       .isNumeric()
+      .custom((value) => {
+        if (value.length !== 4 || (!/^\d+$/.test(value))) {
+          throw new Error("Please provide a 4 digit year.");
+        }
+        return true;
+      })
       .withMessage("Please provide a 4 digit year."),
-
+    
     // Miles is required and must be numeric
     body("inv_miles")
-      .trim()
-      .isLength({ min: 1 })
-      .isNumeric()
-      .withMessage("Please provide a numerical mileage."),
-
+    .trim()
+    .custom((value) => {
+      if (!/^\d+$/.test(value)) {
+        throw new Error("Please provide a valid numerical mileage.");
+      }
+      return true;
+    })
+    .withMessage("Please provide a valid numerical mileage."),
+  
     // Color is required
     body("inv_color")
       .trim()
@@ -130,7 +144,6 @@ inv_validate.addVehicleRules = () => {
  * ***************************** */
 inv_validate.checkVehicleData = async (req, res, next) => {
   const {
-    classification_id,
     inv_make,
     inv_model,
     inv_description,
@@ -144,11 +157,12 @@ inv_validate.checkVehicleData = async (req, res, next) => {
   const errors = validationResult(req);
   if (!errors.isEmpty()) {
     let nav = await Util.getNav();
-    res.render("inv/add-vehicle", {
+    let classificationDropdown = await Util.getClassificationDropdown();
+    res.render("inventory/add-vehicle", {
       errors,
       title: "Add New Vehicle",
       nav,
-      classification_id,
+      classificationDropdown,
       inv_make,
       inv_model,
       inv_description,
