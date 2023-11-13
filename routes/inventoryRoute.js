@@ -18,7 +18,7 @@ router.get(
 
 // Route to build the inventory management view
 router.get(
-  "/management",
+  "",
   Util.handleErrors(invController.renderManagementView)
 );
 

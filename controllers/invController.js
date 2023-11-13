@@ -75,7 +75,6 @@ invCont.showVehicleDetail = async function (req, res, next) {
 invCont.renderManagementView = async function (req, res, next) {
   try {
     let nav = await Util.getNav();
-
     res.render("./inventory/management", {
       title: "Inventory Management",
       nav,
@@ -88,6 +87,7 @@ invCont.renderManagementView = async function (req, res, next) {
     next(error);
   }
 };
+
 
 /* ***************************
  *  Build Add-Classification View
