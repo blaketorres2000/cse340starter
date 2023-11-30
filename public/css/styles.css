@@ -562,6 +562,33 @@ main h1 {
   margin-bottom: 30px;
 }
 
+.manage-links {
+  border: black 2px solid;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  margin-top: 25px;
+  margin-bottom: 50px;
+  gap: 20px;
+  font-size: large;
+  padding: 30px;
+  border-radius: 5px;
+}
+
+.manage-links a {
+  color: white;
+  border: 1px solid gray;
+  border-radius: 5px;
+  padding: 5px;
+  background-color: rgb(43, 126, 153);;
+  max-width: 250px;
+}
+
+.manage-links a:hover {
+  color: white;
+  background-color: black;
+}
+
 .manage-links-group {
   border: black 2px solid;
   display: flex;
