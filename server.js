@@ -19,6 +19,7 @@ const accountRoute = require("./routes/accountRoute")
 const utilities = require("./utilities/")
 const errorHandlerMiddleware = require('./utilities/errorHandlerMiddleware');
 const bodyParser = require("body-parser")
+const cookieParser = require("cookie-parser")
 
 
 /* ***********************
@@ -47,6 +48,10 @@ app.use(function(req, res, next){
 app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({ extended: true })) // for parsing application/x-www-form-urlencoded
 
+app.use(cookieParser())
+
+app.use(utilities.checkJWTToken)
+
 /* ***********************
  * View Engine and Templates
  *************************/
@@ -68,6 +73,7 @@ app.use("/inv", inventoryRoute)
 app.use("/account", accountRoute)
 // // 500 Type Error Route
 app.use('/error', require('./routes/errorRoute'));
+
 // File Not Found Route - must be last route in the list
 app.use(async (req, res, next) => {
   next({ status: 404, message: 'Sorry, this page seems to be lost just like these lost boys.' });

@@ -3,7 +3,13 @@
         <img src="/images/site/favicon-32x32.png" alt="CSE Motors Logo">
         <a href="/" title="Return to home page">CSE Motors</a>
     </span>
-    <div id="tools">
-        <a title="Click to log in" href="/account/login">My Account</a>
+    <div class="login-tools">
+        <% if (loggedin) { %>
+            <a href="/account/manage" title="Account Management">Welcome <%= account_firstname %></a>
+            <a href="/account/logout" title="Click to log out">Logout</a>
+        <% } else { %>
+            <a href="/account/login" title="Click to log in">My Account</a>
+        <% } %>
     </div>
 </header>
+

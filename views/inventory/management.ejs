@@ -22,4 +22,11 @@
                                 <a href="/inv/add-classification">Add New Classification</a>
                                 <a href="/inv/add-vehicle">Add New Vehicle</a>
                             </div>
+                            <h2>Manage Individual Inventory</h2>
+                            <p class="inv_paragraph">**Select a Classification from the list to see items belonging to that Classification**</p>
+                            <%- classificationDropdown %> <!-- This is the dropdown menu for the classifications -->
+                            <table id="inventoryDisplay" class="manage-inv-display"></table>
+                            <noscript>JavaScript must be enabled to use this page.</noscript>
 </div>
+
+<script src="/js/inventory.js"></script>

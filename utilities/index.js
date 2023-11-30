@@ -1,4 +1,6 @@
 const invModel = require("../models/inventory-model.js");
+const jwt = require("jsonwebtoken");
+require("dotenv").config();
 const Util = {};
 
 /* ************************
@@ -29,17 +31,20 @@ Util.getNav = async function (req, res, next) {
  * ************************************ */
 Util.getClassificationDropdown = async function (classification_id = null) {
   let data = await invModel.getClassifications();
-  let dropdown = '<select name="classification_id" id="dropdown">'
-    dropdown += "<option>Choose a classification</option>"
-    data.rows.forEach((row) => {
-      dropdown += '<option value="' + row.classification_id + '"'
-      if (classification_id != null && row.classification_id == classification_id) {
-        dropdown += " selected "
-      }
-      dropdown += ">" + row.classification_name + "</option>";
-    })
-    dropdown += "</select>"
-    return dropdown
+  let dropdown = '<select name="classification_id" id="dropdown">';
+  dropdown += "<option>Choose a classification</option>";
+  data.rows.forEach((row) => {
+    dropdown += '<option value="' + row.classification_id + '"';
+    if (
+      classification_id != null &&
+      row.classification_id == classification_id
+    ) {
+      dropdown += " selected ";
+    }
+    dropdown += ">" + row.classification_name + "</option>";
+  });
+  dropdown += "</select>";
+  return dropdown;
 };
 
 /* **************************************
@@ -121,5 +126,69 @@ Util.buildVehicleDetail = function (vehicle) {
  **************************************** */
 Util.handleErrors = (fn) => (req, res, next) =>
   Promise.resolve(fn(req, res, next)).catch(next);
+
+/* ****************************************
+ * Middleware to check token validity
+ **************************************** */
+Util.checkJWTToken = (req, res, next) => {
+  if (req.cookies.jwt) {
+    jwt.verify(
+      req.cookies.jwt,
+      process.env.ACCESS_TOKEN_SECRET,
+      function (err, accountData) {
+        if (err) {
+          req.flash("Please log in");
+          res.clearCookie("jwt");
+          res.locals.loggedin = 0;
+          return res.redirect("/account/login");
+        }
+        res.locals.accountData = accountData;
+        res.locals.loggedin = 1; 
+        res.locals.account_firstname = accountData.account_firstname;
+        res.locals.account_lastname = accountData.account_lastname;
+        res.locals.account_email = accountData.account_email;
+        res.locals.account_id = accountData.account_id;
+        next();
+      }
+    );
+  } else {
+    res.locals.loggedin = 0;
+    next();
+  }
+};
+
+
+// Util.checkJWTToken = (req, res, next) => {
+//   if (req.cookies.jwt) {
+//     jwt.verify(
+//       req.cookies.jwt,
+//       process.env.ACCESS_TOKEN_SECRET,
+//       function (err, accountData) {
+//         if (err) {
+//           req.flash("Please log in");
+//           res.clearCookie("jwt");
+//           return res.redirect("/account/login");
+//         }
+//         res.locals.accountData = accountData;
+//         res.locals.loggedin = 1;
+//         next();
+//       }
+//     );
+//   } else {
+//     next();
+//   }
+// };
+
+/* ****************************************
+ *  Check Login
+ * ************************************ */
+Util.checkLogin = (req, res, next) => {
+  if (res.locals.loggedin) {
+    next()
+  } else {
+    req.flash("notice", "Please log in.")
+    return res.redirect("/account/login")
+  }
+ }
 
 module.exports = Util;

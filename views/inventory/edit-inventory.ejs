@@ -18,7 +18,7 @@
                                 </ul>
                                 <% } %>
 
-                                    <form action="/inv/add-vehicle" method="POST" id="add-class-form">
+                                    <form action="/inv/update" method="POST" id="updateForm">
                                         <div class="form-group">
                                             <label>Classification:</label>
                                             <%- classificationDropdown %>
@@ -81,7 +81,13 @@
                                                 value="<%= locals.inv_color %>" oninput="setInputColor(this)">
                                         </div>
                                         <div class="form-group">
-                                            <button type="submit">Add Vehicle</button>
+                                            <button type="submit" disabled>Edit Vehicle</button>
+                                            <input type="hidden" name="inv_id" <% if(locals.inv_id) { %> value="<%=
+                                                locals.inv_id %>"
+                                                <% } %>>
                                         </div>
                                     </form>
 </div>
+
+<script src="/js/inventory.js"></script>
+<script src="/js/inv-update.js"></script>

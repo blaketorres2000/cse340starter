@@ -178,4 +178,45 @@ inv_validate.checkVehicleData = async (req, res, next) => {
   next();
 };
 
+/* ******************************
+ * Check data and return errors to the edit view or continue to Management View
+ * ***************************** */
+inv_validate.checkUpdateData = async (req, res, next) => {
+  const {
+    inv_id,
+    inv_make,
+    inv_model,
+    inv_description,
+    inv_image,
+    inv_thumbnail,
+    inv_price,
+    inv_year,
+    inv_miles,
+    inv_color,
+  } = req.body;
+  const errors = validationResult(req);
+  if (!errors.isEmpty()) {
+    let nav = await Util.getNav();
+    let classificationDropdown = await Util.getClassificationDropdown();
+    res.render("inventory/edit-inventory", {
+      errors,
+      title: "Edit" + inv_make + " " + inv_model,
+      nav,
+      classificationDropdown,
+      inv_id,
+      inv_make,
+      inv_model,
+      inv_description,
+      inv_image,
+      inv_thumbnail,
+      inv_price,
+      inv_year,
+      inv_miles,
+      inv_color,
+    });
+    return;
+  }
+  next();
+};
+
 module.exports = inv_validate;

@@ -42,6 +42,26 @@ body {
 
 /************ Header Styles ***************/
 
+.login-tools {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  align-items: center;
+  padding: 0;
+  margin-right: 15px;
+  gap: 15px;
+}
+
+.login-tools a {
+  color: black;
+  font-size: 1.25rem;
+  text-decoration: none;
+}
+
+.login-tools a:hover {
+  text-decoration: underline;
+}
+
 #top-header {
   display: flex;
   flex-direction: row;
@@ -146,6 +166,38 @@ nav ul li a.active {
 
 main h1 {
   font-size: 1.5rem;
+}
+
+.welcome-user {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 50px;
+}
+
+.man-inv-heading {
+  text-decoration: underline;
+}
+
+.manage-links-group {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+}
+
+.manage-link {
+  border: 1px solid gray;
+  background-color: rgba(109, 165, 184, 0.497);
+  max-width: 350px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 0px 15px;
+  border-radius: 5px;
 }
 
 .pic-text-container {
@@ -418,7 +470,7 @@ main h1 {
   margin-bottom: 20px;
 }
 
-#login-form {
+#loginForm {
   background-color: white;
   border: 1px solid #ccc;
   border-radius: 5px;
@@ -467,10 +519,21 @@ main h1 {
   transition: background-color 0.3s;
 }
 
+.form-group textarea {
+  display: flex;
+  flex-direction: column;
+  width: 350px;
+  height: 200px;
+  font-size: 18px;
+  font-family: 'Roboto', sans-serif;
+}
+
 #passbutton {
   border: 1px solid gray;
   padding: 3px;
   font-size: 15px;
+  border-radius: 5px;
+  margin-top: 0;
 }
 
 #passbutton:hover {
@@ -499,7 +562,7 @@ main h1 {
   margin-bottom: 30px;
 }
 
-.manage-links {
+.manage-links-group {
   border: black 2px solid;
   display: flex;
   flex-direction: column;
@@ -510,18 +573,21 @@ main h1 {
   font-size: large;
   padding: 30px;
   border-radius: 5px;
+  color: white;
 }
 
-.manage-links a {
+.manage-link {
+  background-color: rgb(43, 126, 153);
+}
+
+.manage-link a {
   color: white;
-  border: 1px solid gray;
   border-radius: 5px;
   padding: 5px;
-  background-color: rgb(43, 126, 153);;
   max-width: 250px;
 }
 
-.manage-links a:hover {
+.manage-link a:hover {
   color: white;
   background-color: black;
 }
@@ -557,6 +623,104 @@ input.invalid {
   width: 350px;
   font-size: 20px;
 }
+
+.inv_paragraph {
+  font-size: 20px;
+  text-align: center;
+}
+
+#dropdown {
+  width: 300px;
+  font-size: 18px;
+}
+
+.manage-view table {
+  margin-top: 25px;
+  font-size: 1.2em;
+  gap: 10px;
+}
+
+.manage-inv-display .inventory-row td {
+  margin-bottom: 15px;
+}
+
+.manage-inv-display tr th {
+  text-align: center;
+  font-size: 1.5rem;
+  text-decoration: underline;
+}
+
+.manage-inv-display td a {
+  margin-left: 20px;
+  background-color: rgb(43, 126, 153);
+  color: white;
+  padding: 5px 10px;
+  border-radius: 10px;
+}
+
+.manage-inv-display td a:hover {
+  background-color: black;
+  color: white;
+}
+
+
+/************ Account Update Form Styles ***************/
+
+.account-update-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 30px;
+  border: 2px solid gray;
+  padding: 30px;
+  border-radius: 10px;
+}
+
+.account-update-form h2 {
+  text-decoration: underline;
+}
+
+
+.account-update-form label {
+  font-size: 18px;
+  font-weight: bold;
+  color: #3a3a3a;
+}
+
+
+.account-update-form input {
+  width: 300px;
+  height: 30px;
+  font-size: 18px;
+  margin-bottom: 20px;
+  border-radius: 5px;
+}
+
+.update-acc-button {
+  width: 160px;
+  font-size: 16px;
+  box-shadow: 4px 4px 4px gray;
+  border-radius: 5px;
+  padding: 10px;
+  margin-top: 20px;
+}
+
+.update-acc-button:hover {
+  background-color: rgb(109, 165, 184);
+  box-shadow: none;
+}
+
+.password-requirements p {
+  max-width: 350px;
+  font-size: 15px;
+  margin-bottom: 40px;
+  padding: 10px;
+  border: 3px solid rgb(177, 54, 54);
+  text-align: center;
+  border-radius: 5px;
+}
+
+
 
 /************ Footer Styles ***************/
 
@@ -627,13 +791,16 @@ footer {
     list-style: none;
     padding: 0;
     margin: 0;
-    display: flex;
     justify-content: flex-start;
   }
 
   nav li {
     flex: 1;
   }
+
+  .manage-links-group {
+    flex-direction: row;
+  }  
 
   .pic-text-container {
     flex-direction: row;

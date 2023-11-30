@@ -1,7 +1,33 @@
 <!-- Page content -->
-<h1>Welcome to CSE Motors!</h1>
+<h1>CSE Motors!</h1>
 <div class="success-message">
-<%- messages() %>
+    <%- messages() %>
+</div>
+<div class="welcome-user">
+    <% if (loggedin) { %>
+        <h2 class="man-inv-heading">Welcome <%= account_firstname %>
+        </h2>
+
+        <div class="manage-links-group">
+            <div class="manage-link">
+                <h3>Manage Account</h3>
+                <a href="/account/manage<%= accountData.id %>">
+                    <p>Click Here</p>
+                </a>
+            </div>
+
+            <% if (accountData.account_type==="Employee" || accountData.account_type==="Admin" ) { %>
+                <div class="manage-link">
+                    <h3>Manage Inventory</h3>
+                    <a href="/inv/">
+                        <p>Click Here</p>
+                    </a>
+                </div>
+                <% } %>
+                    <% } else { %>
+                        <h2>Welcome</h2>
+                        <% } %>
+        </div>
 </div>
 <div class="pic-text-container">
     <div id="text-container">

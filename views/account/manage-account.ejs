@@ -1,0 +1,72 @@
+<div class="login-page">
+    <% if (title) { %>
+        <h1 class="form-title">
+            <%= title %>
+        </h1>
+        <% } else { %>
+            <% res.redirect('/') %>
+                <% } %>
+
+                    <%- messages() %>
+
+                        <% let errors=locals.errors %>
+                            <% if (errors) { %>
+                                <ul class="notice">
+                                    <% errors.array().forEach(error=> { %>
+                                        <li>
+                                            <%= error.msg %>
+                                        </li>
+                                        <% }) %>
+                                </ul>
+                                <% } %>
+
+                                    <!-- Account Update Form -->
+                                    <form action="/account/update" method="post" class="account-update-form">
+                                        <h2>Update Account Information</h2>
+                                        <label for="firstName">First Name:</label>
+                                        <input type="text" id="account_firstname" name="account_firstname"
+                                            value="<%= locals.account_firstname %>" oninput="setInputColor(this)"
+                                            required>
+
+                                        <label for="lastName">Last Name:</label>
+                                        <input type="text" id="account_lastname" name="account_lastname"
+                                            value="<%= locals.account_lastname %>" oninput="setInputColor(this)"
+                                            required>
+
+                                        <label for="email">Email:</label>
+                                        <input type="email" id="account_email" name="account_email"
+                                            value="<%= locals.account_email %>" oninput="setInputColor(this)" required>
+
+                                        <input type="hidden" name="account_id" value="<%= locals.account_id %>">
+
+                                        <button type="submit" value="Update Account" class="update-acc-button">Update
+                                            Account</button>
+
+                                    </form>
+
+                                    <!-- Change Password Form -->
+                                    <form action="/account/change-password" method="post" class="account-update-form">
+                                        <h2>Update Password</h2>
+                                        <div class="password-requirements">
+                                            <p>**Password must be at least 12 characters long and include at least one
+                                                lowercase
+                                                letter,
+                                                one uppercase letter, one number, and one special character**</p>
+                                        </div>
+
+                                        <label for="newPassword">New Password:</label>
+
+                                        <input type="password" id="account_password" name="account_password" required
+                                            pattern="^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[^a-zA-Z0-9])(?!.*\s).{12,}$"
+                                            oninput="setInputColor(this)"
+                                            title="Password must be at least 12 characters long and include at least one lowercase letter, one uppercase letter, one number, and one special character">
+                                        <span id="passbutton" onclick="togglePasswordVisibility()">Show Password</span>
+
+                                        <input type="hidden" name="account_id" value="<%= locals.account_id %>">
+
+                                        <button type="submit" value="Change Password" class="update-acc-button">Change
+                                            Password</button>
+
+                                    </form>
+
+</div>
